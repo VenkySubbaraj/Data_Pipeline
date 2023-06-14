@@ -20,7 +20,7 @@ jobs:
 
       - name: Copy code
         run: |
-          cp -r ../../* ./  # Replace with the appropriate source and target paths
+          cp -r ./Data_Pipeline/* ./clone  # Replace with the appropriate source and target paths
 
       - name: Commit and push changes
         run: |
