@@ -20,7 +20,7 @@ jobs:
 
       - name: Copy code
         run: |
-          cp -r ./* ./clone  # Replace with the appropriate source and target paths
+          cp -r ./* clone/  # Replace with the appropriate source and target paths
 
       - name: Commit and push changes
         run: |
