@@ -3,7 +3,7 @@ name: Copy Code to Another Repo
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   copy_code:
