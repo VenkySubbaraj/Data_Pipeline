@@ -1,0 +1,31 @@
+name: Copy Latest File
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  copy-file:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Copy file from source repository
+      run: |
+        rsync -avh ./* ./
+
+    - name: Checkout destination repository
+      uses: actions/checkout@v2
+      with:
+        repository: venkatsubbaraj/Data_Pipeline
+        token: ${{ secrets.DESTINATION_REPO_TOKEN }}
+        ref: master
+
+    - name: Copy file to destination repository
+      run: |
+        cd $GITHUB_WORKSPACE
+        git config --global user.name "venkatsubbaraj"
+        git config --global user.email "venkatachalapathysubbaraj@outlook.com"
+        git add .
+        git commit -m "Copy latest file"
+        git push origin main
