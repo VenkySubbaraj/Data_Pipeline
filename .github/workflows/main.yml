@@ -19,7 +19,7 @@ jobs:
       with:
         repository: venkatsubbaraj/clone
         token: ${{ secrets.DESTINATION_REPO_TOKEN }}
-#         ref: venkata_code_updation
+        ref: master
    
     - name: git setup
       run: |
