@@ -18,8 +18,7 @@ jobs:
       env:
         DESTINATION_REPO_TOKEN: ${{ secrets.DESTINATION_REPO_TOKEN }}
       with:
-        source_file: 'README.md'
-        destination_repo: 'VenkatSubbaraj/clone'
-        user_email: 'venkats1909@gmail.com'
-        user_name: 'VenkatSubbaraj'
-        commit_message: 'commit-message'
+          source-files: 'Data_pipeline/'
+          destination-username: 'venkatsubbaraj'
+          destination-repository: 'clone'
+          commit-email: 'venkatachalapathysubbaraj@outlook.com'
