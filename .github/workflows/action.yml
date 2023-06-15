@@ -27,7 +27,7 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          cd copied_folder
+          git clone https://github.com/VenkySubbaraj/Data_Pipeline.git destination
           git config --global user.name "GitHub Actions"
           git config --global user.email "<>"
           git add .
