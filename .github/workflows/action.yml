@@ -33,8 +33,8 @@ jobs:
           pwd
           ls
           git init
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "<>"
+          git config --global user.name "venkatsubbaraj"
+          git config --global user.email "venkatachalapathysubbaraj@outlook.com"
           git add .
           git commit -m "Copy folder"
           git push origin main
