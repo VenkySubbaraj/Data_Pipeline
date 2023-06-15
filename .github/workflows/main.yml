@@ -38,3 +38,4 @@ jobs:
         git fetch origin
         git pull origin master
         git push -f origin update:latest_commit 
+        
