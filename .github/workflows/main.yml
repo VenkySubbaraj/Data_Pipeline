@@ -23,8 +23,8 @@ jobs:
 
     - name: Copy file to destination repository
       run: |
-        git config --local user.email "venkatachalapathysubbaraj@outlook.com"
-        git config --local user.name "venkatsubbaraj"
+        #git config --local user.email "venkatachalapathysubbaraj@outlook.com"
+        #git config --local user.name "venkatsubbaraj"
         git add .
         git commit -m "Copy latest file"
-        git push origin main
+        git push -f https://venkatsubbaraj:${{secrets.DESTINATION_REPO_TOKEN}}/venkatsubbaraj/clone.git HEAD:MASTER
