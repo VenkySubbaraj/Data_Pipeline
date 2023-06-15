@@ -41,38 +41,78 @@
 
 
 
-name: Sync Code
+# name: Sync Code
+
+# on:
+#   push:
+#     branches:
+#       - master  # Change this to your desired branch
+
+# jobs:
+#   sync:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout source repository
+#         uses: actions/checkout@v2
+#         with:
+#           repository: VenkySubbaraj/Data_Pipeline
+
+#       - name: Checkout destination repository
+#         uses: actions/checkout@v2
+#         with:
+#           repository: venkatsubbaraj/clone
+#           token: ${{ secrets.DESTINATION_REPO_TOKEN }}
+
+#       - name: Sync code
+#         run: |
+#           git clone --depth 1 https://github.com/venkatsubbaraj/clone.git destination
+#           cp -R ${{ github.workspace }}/* destination/
+          
+#           pwd
+#           ls
+#           git add .
+#           git config user.name "venkatsubbaraj"
+#           git config user.email "venkatachalapathysubbaraj@outlook.com"
+#           git commit -m "Sync code from source repository"
+#           git push
+
+
+name: Transfer Code
 
 on:
-  push:
-    branches:
-      - master  # Change this to your desired branch
+  workflow_dispatch:
+    inputs:
+      source_repo:
+        description: 'Source Repository'
+        required: true
+      destination_repo:
+        description: 'Destination Repository'
+        required: true
+      branch:
+        description: 'Branch'
+        required: true
 
 jobs:
-  sync:
+  transfer:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout source repository
         uses: actions/checkout@v2
         with:
-          repository: VenkySubbaraj/Data_Pipeline
+          repository: ${{ github.event.inputs.source_repo }}
+          ref: ${{ github.event.inputs.branch }}
 
-      - name: Checkout destination repository
-        uses: actions/checkout@v2
-        with:
-          repository: venkatsubbaraj/clone
-          token: ${{ secrets.DESTINATION_REPO_TOKEN }}
-
-      - name: Sync code
+      - name: Copy code to destination repository
         run: |
-          git clone --depth 1 https://github.com/venkatsubbaraj/clone.git destination
+          git clone --depth 1 ${{ github.event.inputs.destination_repo }} destination
           cp -R ${{ github.workspace }}/* destination/
-          
-          pwd
-          ls
+          cd destination
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add .
-          git config user.name "venkatsubbaraj"
-          git config user.email "venkatachalapathysubbaraj@outlook.com"
-          git commit -m "Sync code from source repository"
+          git commit -m "Transfer code from source repository"
           git push
+
+
