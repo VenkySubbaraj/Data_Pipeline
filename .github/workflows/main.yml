@@ -113,13 +113,12 @@ jobs:
 
       - name: Copy code to destination repository
         run: |
-          mkdir temp
-          cp -R ${{ github.workspace }}/ ./temp
+          mkdir -p temp
+          cp -R ${{ github.workspace }}/. ./temp
           rm -rf ${{ github.workspace }}/*
           cp -R ./temp/. ${{ github.workspace }}/
           rm -rf ./temp
           cd ${{ github.workspace }}
-          rm -rf ${{ github.workspace }}/temp
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add .
