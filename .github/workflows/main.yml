@@ -52,6 +52,5 @@ jobs:
 
     - name: Push code to destination repository
       run: |
-        cd Data_Pipeline
         git remote add origin https://github.com/venkatsubbaraj/clone.git
         git push -f origin master
