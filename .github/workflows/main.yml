@@ -66,7 +66,8 @@ jobs:
 
       - name: Sync code
         run: |
-          cp -R ${{ github.workspace }}/* .  # Copy the contents of the source repository to the destination repository
+          #cp -R ${{ github.workspace }}/* .
+          cp -R ./* .
           git add .
           git config user.name "venkatsubbaraj"
           git config user.email "venkatachalapathysubbaraj@outlook.com"
