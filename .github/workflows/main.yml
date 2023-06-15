@@ -23,7 +23,6 @@ jobs:
 
     - name: Copy file to destination repository
       run: |
-        cd $GITHUB_WORKSPACE
         git config --global user.name "venkatsubbaraj"
         git config --global user.email "venkatachalapathysubbaraj@outlook.com"
         git add .
