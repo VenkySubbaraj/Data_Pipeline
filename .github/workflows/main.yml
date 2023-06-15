@@ -47,18 +47,11 @@ jobs:
     - name: Checkout source repository
       uses: actions/checkout@v2
       with:
-        repository: venkatsubbaraj/clone
-        token: ${{ secrets.SOURCE_REPO_TOKEN }}
+        repository: VenkySubbaraj/Data_Pipeline
         ref: master
-        
-    - name: Copy directories
-      run: |
-        rsync -av --ignore-existing ./* ./
 
     - name: Push code to destination repository
       run: |
-        git remote rm origin
+        cd Data_Pipeline
         git remote add origin https://github.com/venkatsubbaraj/clone.git
-        git config --local user.email "venkats1909@gmail.com"
-        git config --local user.name "venkatsubbaraj"
         git push -f origin master
