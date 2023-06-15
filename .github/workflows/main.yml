@@ -23,8 +23,8 @@ jobs:
 
     - name: Copy file to destination repository
       run: |
-        git config --local user.name "venkatsubbaraj"
         git config --local user.email "venkatachalapathysubbaraj@outlook.com"
+        git config --local user.name "venkatsubbaraj"
         git add .
         git commit -m "Copy latest file"
         git push origin main
