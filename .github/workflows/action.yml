@@ -22,12 +22,15 @@ jobs:
       - name: Checkout destination repository
         uses: actions/checkout@v2
         with:
-          repository: username/destination-repo
+          repository: venkatsubbaraj/clone
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit and push changes
         run: |
           git clone https://github.com/VenkySubbaraj/Data_Pipeline.git destination
+          cd destination
+          pwd
+          ls
           git config --global user.name "GitHub Actions"
           git config --global user.email "<>"
           git add .
