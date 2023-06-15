@@ -113,8 +113,8 @@ jobs:
 
       - name: Copy code to destination repository
         run: |
-          rsync -Rr ${{ github.workspace }}/. ${{ github.workspace }}/destination/
-          cd ${{ github.workspace }}/destination
+          git clone https://github.com/VenkySubbaraj/Data_Pipeline.git copy_folder
+          cd copy_folder
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add .
