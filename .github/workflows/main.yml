@@ -12,13 +12,14 @@ jobs:
     steps:
     - name: Checkout source repository
       uses: actions/checkout@v2
-      with:
-        repository: VenkySubbaraj/Data_Pipeline.git
-        ref: master
       
     - name: Transfer Code
+      uses: VenkySubbaraj/Data_pipeline@master
       env:
         DESTINATION_REPO_TOKEN: ${{ secrets.DESTINATION_REPO_TOKEN }}
-      run: |
-        #git remote add origin https://github.com/venkatsubbaraj/clone.git
-        git push -f https://github.com/venkatsubbaraj/clone.git HEAD:master
+      with:
+        source_file: 'README.md'
+        destination_repo: 'VenkatSubbaraj/clone'
+        user_email: 'venkats1909@gmail.com'
+        user_name: 'VenkatSubbaraj'
+        commit_message: 'commit-message'
