@@ -33,6 +33,6 @@ jobs:
         
     - name: Copy file to destination repository
       run: |
-       git remote rm origin https://github.com/venkatsubbaraj/clone.git
+        git remote rm origin
         git remote add origin https://github.com/venkatsubbaraj/clone.git
         git push -f origin update:latest_commit 
