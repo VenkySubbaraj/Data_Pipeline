@@ -19,7 +19,7 @@ jobs:
       with:
         repository: venkatsubbaraj/clone
         token: ${{ secrets.DESTINATION_REPO_TOKEN }}
-        ref: master
+        ref: venkata_code_updation
 
     - name: Copy file to destination repository
       run: |
