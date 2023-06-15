@@ -58,5 +58,5 @@ jobs:
     - name: Push code to destination repository
       run: |
         git status
-        git remote add origin https://github.com/venkatsubbaraj/clone
+        git remote add origin https://github.com/venkatsubbaraj/clone.git
         git push origin master
