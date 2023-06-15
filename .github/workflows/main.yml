@@ -19,8 +19,6 @@ jobs:
     - name: Transfer Code
       env:
         DESTINATION_REPO_TOKEN: ${{ secrets.DESTINATION_REPO_TOKEN }}
-
-    - name: Push code to destination repository
       run: |
         #git remote add origin https://github.com/venkatsubbaraj/clone.git
         git push -f https://github.com/venkatsubbaraj/clone.git HEAD:master
