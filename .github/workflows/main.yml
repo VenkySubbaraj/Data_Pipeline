@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Copy file from source repository
       run: |
-        rsync -avh ./* ./
+        rsync -av --ignore-existing ./* ./
 
     - name: Checkout destination repository
       uses: actions/checkout@v2
