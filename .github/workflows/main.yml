@@ -28,7 +28,7 @@ jobs:
         
     - name: Fetch latest changes from source repository
       run: |
-        git remote add source <source_repository_url>
+        git remote add source https://github.com/VenkySubbaraj/Data_Pipeline.git
         git fetch source
         
     - name: Copy file to destination repository
