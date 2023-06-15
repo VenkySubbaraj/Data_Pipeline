@@ -1,0 +1,34 @@
+name: Copy Folder
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  copy_folder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v2
+
+      - name: Copy folder
+        run: |
+          mkdir copied_folder
+          pwd
+
+      - name: Checkout destination repository
+        uses: actions/checkout@v2
+        with:
+          repository: username/destination-repo
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and push changes
+        run: |
+          cd copied_folder
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "<>"
+          git add .
+          git commit -m "Copy folder"
+          git push origin main
