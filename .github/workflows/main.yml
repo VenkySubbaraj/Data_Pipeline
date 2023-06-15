@@ -67,7 +67,7 @@ jobs:
       - name: Sync code
         run: |
           #cp -R ${{ github.workspace }}/* .
-          cp -R VenkySubbaraj/Data_Pipeline/* .
+          cp -R ./* .
           git add .
           git config user.name "venkatsubbaraj"
           git config user.email "venkatachalapathysubbaraj@outlook.com"
