@@ -33,7 +33,6 @@ jobs:
         
     - name: Copy file to destination repository
       run: |
-        git remote add -f origin https://github.com/venkatsubbaraj/clone.git
         git diff master remote/origin/master
         git fetch origin
         git pull origin master
