@@ -25,7 +25,12 @@ jobs:
       run: |
         git config --local user.email "venkatachalapathysubbaraj@outlook.com"
         git config --local user.name "venkatsubbaraj"
-
+        
+    - name: Fetch latest changes from source repository
+      run: |
+        git remote add source <source_repository_url>
+        git fetch source
+        
     - name: Copy file to destination repository
       run: |
         git remote add target https://github.com/venkatsubbaraj/clone.git
