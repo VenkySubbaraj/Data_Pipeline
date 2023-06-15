@@ -27,4 +27,4 @@ jobs:
         git config --local user.name "venkatsubbaraj"
         git add .
         git commit -m "Copy latest file"
-        git push -f https://venkatsubbaraj:${{secrets.DESTINATION_REPO_TOKEN}}/venkatsubbaraj/clone.git HEAD:MASTER
+        git push -f https://venkatsubbaraj:${{secrets.DESTINATION_REPO_TOKEN}}/venkatsubbaraj/clone.git HEAD:venkata_code_updation
