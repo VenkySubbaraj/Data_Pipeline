@@ -61,4 +61,6 @@ jobs:
         git config --local user.email "venkats1909@gmail.com"
         git config --local user.name "venkatsubbaraj"
         git remote add destination https://github.com/venkatsubbaraj/clone.git
-        git push destination master
+        git add . 
+        git commit -m "copied files"
+        git push -f destination master
