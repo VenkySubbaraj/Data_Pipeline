@@ -3,7 +3,7 @@ name: Copy Folder
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   copy_folder:
