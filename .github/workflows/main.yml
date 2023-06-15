@@ -50,6 +50,10 @@ jobs:
         repository: venkatsubbaraj/clone
         token: ${{ secrets.SOURCE_REPO_TOKEN }}
         ref: master
+        
+    - name: Copy directories
+      run: |
+        rync -av --ignore-existing ./* ./
 
     - name: Push code to destination repository
       run: |
