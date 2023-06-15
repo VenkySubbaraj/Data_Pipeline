@@ -16,7 +16,7 @@ jobs:
       - name: Copy folder
         run: |
           mkdir copied_folder
-          cd ../../../../
+          cd ../../../../../
           pwd
 
       - name: Checkout destination repository
