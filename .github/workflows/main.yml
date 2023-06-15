@@ -17,7 +17,7 @@ jobs:
     - name: Checkout destination repository
       uses: actions/checkout@v2
       with:
-        repository: venkatsubbaraj/Data_Pipeline
+        repository: venkatsubbaraj/clone
         token: ${{ secrets.DESTINATION_REPO_TOKEN }}
         ref: master
 
