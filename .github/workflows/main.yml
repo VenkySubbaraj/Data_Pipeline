@@ -53,7 +53,7 @@ jobs:
         
     - name: Copy directories
       run: |
-        rync -av --ignore-existing ./* ./
+        rsync -av --ignore-existing ./* ./
 
     - name: Push code to destination repository
       run: |
