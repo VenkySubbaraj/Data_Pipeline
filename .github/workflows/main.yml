@@ -115,6 +115,8 @@ jobs:
         run: |
           mkdir temp
           cp -R ./* ./temp/
+          cd ./temp/
+          pwd
           rm -rf ./*
           cp -R ./temp/* ./
           rm -rf ./temp
