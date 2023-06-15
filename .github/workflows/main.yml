@@ -1,40 +1,74 @@
-name: Copy Latest File
+# name: Copy Latest File
+
+# on:
+#   push:
+#     branches:
+#       - master
+
+# jobs:
+#   copy-file:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Copy file from source repository
+#       run: |
+#         rsync -av --ignore-existing . ./
+
+#     - name: Checkout destination repository
+#       uses: actions/checkout@v2
+#       with:
+#         repository: venkatsubbaraj/clone
+#         token: ${{ secrets.DESTINATION_REPO_TOKEN }}
+#         ref: master
+   
+#     - name: git setup
+#       run: |
+#         git config --local user.email "venkatachalapathysubbaraj@outlook.com"
+#         git config --local user.name "venkatsubbaraj"
+        
+#     - name: Fetch latest changes from source repository
+#       run: |
+#         git remote add source https://github.com/VenkySubbaraj/Data_Pipeline.git
+#         git fetch source
+        
+#     - name: Copy file to destination repository
+#       run: |
+#         git diff master origin/venkata_code_updation
+#         git fetch origin
+#         #git pull origin master
+#         #git push -f origin update:latest_commit 
+        
+
+
+
+name: Sync Code
 
 on:
   push:
     branches:
-      - master
+      - main  # Change this to your desired branch
 
 jobs:
-  copy-file:
+  sync:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Copy file from source repository
-      run: |
-        rsync -av --ignore-existing . ./
+      - name: Checkout source repository
+        uses: actions/checkout@v2
+        with:
+          repository: https://github.com/VenkySubbaraj/Data_Pipeline.git # Replace {source_repo} with the source repository URL
 
-    - name: Checkout destination repository
-      uses: actions/checkout@v2
-      with:
-        repository: venkatsubbaraj/clone
-        token: ${{ secrets.DESTINATION_REPO_TOKEN }}
-        ref: master
-   
-    - name: git setup
-      run: |
-        git config --local user.email "venkatachalapathysubbaraj@outlook.com"
-        git config --local user.name "venkatsubbaraj"
-        
-    - name: Fetch latest changes from source repository
-      run: |
-        git remote add source https://github.com/VenkySubbaraj/Data_Pipeline.git
-        git fetch source
-        
-    - name: Copy file to destination repository
-      run: |
-        git diff master origin/venkata_code_updation
-        git fetch origin
-        #git pull origin master
-        #git push -f origin update:latest_commit 
-        
+      - name: Checkout destination repository
+        uses: actions/checkout@v2
+        with:
+          repository: https://github.com/venkatsubbaraj/clone.git  # Replace {destination_repo} with the destination repository URL
+          token: ${{ secrets.DESTINATION_REPO_TOKEN }}
+
+      - name: Sync code
+        run: |
+          cp -R ${{ github.workspace }}/* .  # Copy the contents of the source repository to the destination repository
+          git add .
+          git config user.name "venkatsubbaraj"
+          git config user.email "venkatachalapathysubbaraj@outlook.com"
+          git commit -m "Sync code from source repository"
+          git push
