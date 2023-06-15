@@ -56,7 +56,7 @@ jobs:
       - name: Checkout source repository
         uses: actions/checkout@v2
         with:
-          repository: VenkySubbaraj/Data_Pipeline.git
+          repository: VenkySubbaraj/Data_Pipeline
 
       - name: Checkout destination repository
         uses: actions/checkout@v2
