@@ -56,7 +56,7 @@ jobs:
       - name: Checkout source repository
         uses: actions/checkout@v2
         with:
-          repository: https://github.com/VenkySubbaraj/Data_Pipeline.git # Replace {source_repo} with the source repository URL
+          repository: VenkySubbaraj/Data_Pipeline.git
 
       - name: Checkout destination repository
         uses: actions/checkout@v2
