@@ -18,6 +18,7 @@ jobs:
           mkdir copied_folder
           cd ../../../../../
           pwd
+          ls
 
       - name: Checkout destination repository
         uses: actions/checkout@v2
