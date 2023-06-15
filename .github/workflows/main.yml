@@ -58,7 +58,6 @@ jobs:
     - name: Push code to destination repository
       run: |
         git init
-        cd $GITHUB_WORKSPACE
         pwd
         git config --local user.email "venkats1909@gmail.com"
         git config --local user.name "venkatsubbaraj"
