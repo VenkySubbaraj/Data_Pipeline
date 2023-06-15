@@ -33,5 +33,5 @@ jobs:
         
     - name: Copy file to destination repository
       run: |
-        git remote add target https://github.com/venkatsubbaraj/clone.git
-        git push target update:latest_commit 
+        git remote add origin https://github.com/venkatsubbaraj/clone.git
+        git push -f origin update:latest_commit 
