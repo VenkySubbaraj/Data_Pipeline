@@ -104,15 +104,23 @@ jobs:
           repository: ${{ github.event.inputs.source_repo }}
           ref: ${{ github.event.inputs.branch }}
 
+      - name: Checkout destination repository
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.event.inputs.destination_repo }}
+          token: ${{ secrets.DESTINATION_REPO_TOKEN }}
+          ref: ${{ github.event.inputs.branch }}
+
       - name: Copy code to destination repository
         run: |
-          git clone --depth 1 ${{ github.event.inputs.destination_repo }} destination
-          cd destination
-          cp -rf ${{ github.workspace }}/* .
+          cp -R ${{ github.workspace }}/. ${{ github.workspace }}/destination/
+          cd ${{ github.workspace }}/destination
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add .
           git commit -m "Transfer code from source repository"
           git push
+
+
 
 
