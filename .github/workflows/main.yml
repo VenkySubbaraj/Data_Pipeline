@@ -114,11 +114,9 @@ jobs:
       - name: Copy code to destination repository
         run: |
           mkdir temp
-          cp -R ./* ./temp/
-          cd ./temp/
-          pwd
+          rsync -Rr ./* ./temp/
           rm -rf ./*
-          cp -R ./temp/* ./
+          rsync -Rr ./temp/* ./
           rm -rf ./temp
           cd ${{ github.workspace }}
           git config user.name "${GITHUB_ACTOR}"
