@@ -1,1 +1,4 @@
-resource "ec2_instance" "python" {}
+data "ec2_instance" "python" {}
+
+
+# resource null_resource "python_varaible" { }
