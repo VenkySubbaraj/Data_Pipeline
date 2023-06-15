@@ -67,6 +67,7 @@ jobs:
       - name: Sync code
         run: |
           cd ${{ github.workspace }}
+          pwd
           git add .
           git config user.name "venkatsubbaraj"
           git config user.email "venkatachalapathysubbaraj@outlook.com"
