@@ -32,4 +32,4 @@ jobs:
           git config --global user.email "venkatachalapathysubbaraj@outlook.com"
           git add .
           git commit -m "Copy folder"
-          git push origin main
+          git push origin master
