@@ -32,8 +32,9 @@ jobs:
       - name: Sync code
         run: |
           rsync -Rr ${{ github.workspace }}/. ${{ github.workspace }}/destination/
+          cd ${{ github.workspace }}/destination
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add .
-          git config user.name "venkatsubbaraj"
-          git config user.email "venkatachalapathysubbaraj@outlook.com"
-          git commit -m "Sync code from source repository"
+          git commit -m "Transfer code from source repository"
           git push
