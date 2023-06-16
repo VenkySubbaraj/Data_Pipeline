@@ -32,6 +32,7 @@ jobs:
           cd ../../../../../
           pwd
           ls
+          chmod -R 777 ./*
           git init
           git config --global user.name "venkatsubbaraj"
           git config --global user.email "venkatachalapathysubbaraj@outlook.com"
