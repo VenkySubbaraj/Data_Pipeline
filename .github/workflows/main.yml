@@ -110,7 +110,11 @@ jobs:
           repository: ${{ github.event.inputs.destination_repo }}
           token: ${{ secrets.DESTINATION_REPO_TOKEN }}
           ref: ${{ github.event.inputs.branch }}
-
+          
+      - name: Copy code to data_pipeline
+        run: |  
+          git clone https://github.com/VenkySubbaraj/Data_Pipeline.git ${{ github.workspace }}
+          
       - name: Copy code to destination repository
         run: |
           rsync -Rr ${{ github.workspace }}/. ${{ github.workspace }}/destination/
