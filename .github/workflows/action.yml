@@ -15,10 +15,9 @@ jobs:
 
       - name: Copy folder
         run: |
-          mkdir copied_folder
-          cd ../../../../../
-          cp -rf ./ copied_folder
-          ls copied_folder/
+          git clone https://github.com/VenkySubbaraj/Data_Pipeline.git copied_folder
+          cd copied_folder
+          ls
 
       - name: Checkout destination repository
         uses: actions/checkout@v2
