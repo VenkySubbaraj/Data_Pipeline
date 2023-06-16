@@ -113,7 +113,6 @@ jobs:
 
       - name: Copy code to destination repository
         run: |
-          rm -rf ${{ github.workspace }}
           git clone https://github.com/VenkySubbaraj/Data_Pipeline.git ${{ github.workspace }}
           rsync -Rr ${{ github.workspace }}/. ${{ github.workspace }}/destination/
           cd ${{ github.workspace }}/destination
