@@ -20,11 +20,15 @@ jobs:
         with:
           repository: venkatsubbaraj/clone
           token: ${{ secrets.DESTINATION_REPO_TOKEN }}
-
+      
+      - name: remove code from repository
+        run: |
+          rm -rf ${{ github.workspace }}
+          git clone --depth 1 https://github.com/venkatsubbaraj/clone.git ${{ github.workspace }}
+          
       - name: Sync code
         run: |
-          git clone --depth 1 https://github.com/venkatsubbaraj/clone.git destination
-          cp -R ${{ github.workspace }}/* destination/
+          rsync -Rr ${{ github.workspace }}/. ${{ github.workspace }}/destination/
           git add .
           git config user.name "venkatsubbaraj"
           git config user.email "venkatachalapathysubbaraj@outlook.com"
