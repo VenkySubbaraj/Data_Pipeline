@@ -25,7 +25,8 @@ jobs:
         run: |
           rm -rf ${{ github.workspace }}
           mkdir -p ${{ github.workspace }}
-          git clone --depth 1 https://github.com/venkatsubbaraj/clone.git ${{ github.workspace }}
+          cd ${{ github.workspace }}
+          #git clone --depth 1 https://github.com/venkatsubbaraj/clone.git ${{ github.workspace }}
           
       - name: Sync code
         run: |
