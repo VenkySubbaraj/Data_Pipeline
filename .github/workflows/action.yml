@@ -28,6 +28,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
+          git remote remove origin https://github.com/VenkySubbaraj/Data_Pipeline.git
+          git remote add origin https://github.com/venkatsubbaraj/clone.git
           git config --global user.name "venkatsubbaraj"
           git config --global user.email "venkatachalapathysubbaraj@outlook.com"
           git add .
