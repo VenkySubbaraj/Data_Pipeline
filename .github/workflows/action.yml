@@ -29,7 +29,7 @@ jobs:
       - name: Commit and push changes
         run: |
           git clone https://github.com/VenkySubbaraj/Data_Pipeline.git copy_folder
-          cd cd ../../../../../
+          cd ../../../../../
           pwd
           ls
           git config --global user.name "venkatsubbaraj"
