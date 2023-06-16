@@ -1,37 +1,32 @@
-name: Copy Folder
+name: Sync Code
 
 on:
   push:
     branches:
-      - master
+      - master  # Change this to your desired branch
 
 jobs:
-  copy_folder:
+  sync:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout source repository
         uses: actions/checkout@v2
-
-      - name: Copy folder
-        run: |
-          git clone https://github.com/VenkySubbaraj/Data_Pipeline.git copied_folder
-          cd copied_folder
-          ls
+        with:
+          repository: VenkySubbaraj/Data_Pipeline
 
       - name: Checkout destination repository
         uses: actions/checkout@v2
         with:
           repository: venkatsubbaraj/clone
-          token: ${{ secrets.GITHUB_TOKEN }}
-          path: ./copied_folder
+          token: ${{ secrets.DESTINATION_REPO_TOKEN }}
 
-      - name: Commit and push changes
+      - name: Sync code
         run: |
-          git remote remove origin
-          git remote add origin https://github.com/venkatsubbaraj/clone.git
-          git config --global user.name "venkatsubbaraj"
-          git config --global user.email "venkatachalapathysubbaraj@outlook.com"
+          git clone --depth 1 https://github.com/venkatsubbaraj/clone.git destination
+          cp -R ${{ github.workspace }}/* destination/
           git add .
-          git commit -m "Copy folder"
-          git push origin master
+          git config user.name "venkatsubbaraj"
+          git config user.email "venkatachalapathysubbaraj@outlook.com"
+          git commit -m "Sync code from source repository"
+          git push
