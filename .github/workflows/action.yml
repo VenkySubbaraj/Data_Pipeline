@@ -28,7 +28,6 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          cd copied_folder
           git config --global user.name "venkatsubbaraj"
           git config --global user.email "venkatachalapathysubbaraj@outlook.com"
           git add .
