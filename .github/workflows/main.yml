@@ -113,7 +113,7 @@ jobs:
 
       - name: Copy code to destination repository
         run: |
-          rsync -Rr ../../../..${{ github.workspace }}/ ${{ github.workspace }}/destination/
+          rsync -Rr ${{ github.workspace }}/. ${{ github.workspace }}/destination/
           cd ${{ github.workspace }}/destination
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
