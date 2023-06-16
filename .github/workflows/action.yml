@@ -24,6 +24,7 @@ jobs:
       - name: remove code from repository
         run: |
           rm -rf ${{ github.workspace }}
+          mkdir ${{ github.workspace }}
           git clone --depth 1 https://github.com/venkatsubbaraj/clone.git ${{ github.workspace }}
           
       - name: Sync code
