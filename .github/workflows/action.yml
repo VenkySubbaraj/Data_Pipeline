@@ -29,11 +29,9 @@ jobs:
       - name: Commit and push changes
         run: |
           git clone https://github.com/VenkySubbaraj/Data_Pipeline.git copy_folder
-          cd ../../../../../
-          pwd
-          ls
-          chmod -R 777 ./*
-          git init
+          cd copy_folder
+          git remote rm origin
+          git remote add origin https://github.com/venkatsubbaraj/clone.git
           git config --global user.name "venkatsubbaraj"
           git config --global user.email "venkatachalapathysubbaraj@outlook.com"
           git add .
