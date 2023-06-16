@@ -17,19 +17,19 @@ jobs:
         run: |
           mkdir copied_folder
           cd ../../../../../
-          pwd
-          ls
+          cp . copied_folder
+          ls copied_folder/
 
       - name: Checkout destination repository
         uses: actions/checkout@v2
         with:
           repository: venkatsubbaraj/clone
           token: ${{ secrets.GITHUB_TOKEN }}
+          path: ./copied_folder
 
       - name: Commit and push changes
         run: |
-          git clone https://github.com/VenkySubbaraj/Data_Pipeline.git copy_folder
-          cd copy_folder
+          cd copied_folder
           git config --global user.name "venkatsubbaraj"
           git config --global user.email "venkatachalapathysubbaraj@outlook.com"
           git add .
