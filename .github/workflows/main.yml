@@ -112,7 +112,8 @@ jobs:
           ref: ${{ github.event.inputs.branch }}
           
       - name: Copy code to data_pipeline
-        run: |  
+        run: |
+          rm -rf ${{ github.workspace }}
           git clone https://github.com/VenkySubbaraj/Data_Pipeline.git ${{ github.workspace }}
           
       - name: Copy code to destination repository
